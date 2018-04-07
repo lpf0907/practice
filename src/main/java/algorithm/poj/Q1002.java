@@ -7,39 +7,28 @@ public class Q1002 {
         Scanner sc = new Scanner(System.in);
         int nums = sc.nextInt();
         int i = 0;
-        String[] resultList = new String[nums];
+        TreeMap<String, Integer> resultMap = new TreeMap<String, Integer>();
         while (i < nums) {
             String phoneNum = sc.next();
-            resultList[i] = standartNumber(phoneNum);
+            String tmp = standartNumber(phoneNum);
+            Object count = resultMap.put(tmp, 1);
+            if (count != null) {
+                Integer countTmp = (Integer) count + 1;
+                resultMap.put(tmp, countTmp);
+            }
             i++;
         }
-        finalProcess(resultList);
-    }
-
-    //最终处理
-    static void finalProcess(String[] resultList){
-        int length = resultList.length;
-
-        TreeMap<String, Integer> resultMap = new TreeMap<String, Integer>();
-        for (int k = 0; k < length; k++) {
-            int counter = 1;
-            int j = k + 1;
-            while (j < length) {
-                if (resultList[k].equals(resultList[j])) {
-                    counter++;
-                    resultMap.put(resultList[k], counter);
-                    resultList[j] = "0";
+        boolean flag = true;
+        if (resultMap.size() != 0) {
+            for (Object key : resultMap.keySet()) {
+                if (resultMap.get(key) > 1) {
+                    System.out.println(key + " " + resultMap.get(key));
+                    flag = false;
                 }
-                j++;
             }
-        }
-        if (resultMap != null) {
-            for (Object tmp : resultMap.keySet()) {
-                if (!tmp.equals("0"))
-                System.out.println(tmp + " " + resultMap.get(tmp));
+            if (flag){
+                System.out.println("No duplicates.");
             }
-        } else {
-            System.out.println("No duplicates");
         }
     }
 
