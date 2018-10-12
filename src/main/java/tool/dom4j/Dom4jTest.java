@@ -1,20 +1,13 @@
 package tool.dom4j;
 
-import java.io.File;
+import org.dom4j.Document;
+import org.dom4j.Element;
+import org.xml.sax.SAXException;
+
+import javax.xml.parsers.ParserConfigurationException;
 import java.io.IOException;
 import java.util.Iterator;
 import java.util.List;
-
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
-
-import org.dom4j.Document;
-import org.dom4j.DocumentException;
-import org.dom4j.Element;
-import org.dom4j.io.DOMReader;
-import org.dom4j.io.SAXReader;
-import org.xml.sax.SAXException;
 
 public class Dom4jTest
 {

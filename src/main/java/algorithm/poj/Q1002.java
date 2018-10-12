@@ -1,6 +1,7 @@
 package algorithm.poj;
 
-import java.util.*;
+import java.util.Scanner;
+import java.util.TreeMap;
 
 public class Q1002 {
     public static void main(String[] args) {
