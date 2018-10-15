@@ -42,7 +42,7 @@ public class Q1006 {
         int P = 33 * 28 * 6;
         int E = 23 * 33 * 19;
         int I = 23 * 28 * 2;
-        int result = (P*+E*e+I*i-d)%(23*28*33);
+        int result = (P*p+E*e+I*i-d)%(23*28*33);
         if (result<=0){
             result+=23*28*33;
         }
