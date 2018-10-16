@@ -7,11 +7,11 @@ public class Q1007 {
         Scanner sc = new Scanner(System.in);
         int stringLength = sc.nextInt();
         int stringNumbers = sc.nextInt();
-        String[] dnas = new String[stringNumbers];
-        int count=0;
-        while(count<stringNumbers){
-            dnas[count] = sc.next();
-            count++;
+        List<String> dnas = new ArrayList<String>();
+        int i = 0;
+        while(i<stringNumbers){
+            dnas.add(sc.next());
+            i++;
         }
         sortDna(dnas);
     }
@@ -20,44 +20,37 @@ public class Q1007 {
      * 排序
      * @param dnas
      */
-    private static void sortDna(String[] dnas){
+    private static void sortDna(List<String> dnas){
         int i = 0;
-        Map<String,Integer> result=new TreeMap<String, Integer>();
-        while(i<dnas.length){
-            result.put(dnas[i],getInversionNum(dnas[i]));
-            i++;
-        }
-        // 按照value的升序比较器
-        Comparator<Map.Entry<String, Integer>> valueComparator = new Comparator<Map.Entry<String,Integer>>() {
-            @Override
-            public int compare(Map.Entry<String, Integer> o1, Map.Entry<String, Integer> o2) {
-                return o1.getValue()-o2.getValue();
-            }
-        };
-
-        // map转换成list进行排序
-        List<Map.Entry<String, Integer>> list = new ArrayList<Map.Entry<String,Integer>>(result.entrySet());
-
+        Comparator comparator = new ComparatorListSort();
         // 排序
-        Collections.sort(list,valueComparator);
-        for (Map.Entry<String, Integer> entry : list) {
-            System.out.println(entry.getKey());
+        Collections.sort(dnas,comparator);
+        Iterator it = dnas.iterator();
+        while(it.hasNext()){
+            System.out.println(it.next());
         }
+    }
+}
+
+ class ComparatorListSort implements Comparator {
+    @Override
+    public int compare(Object o1, Object o2) {
+        return getInversionNum((String) o1)-getInversionNum((String)o2);
     }
 
-    /**
-     * 获取每个string的逆序数
-     */
-    private static int getInversionNum(String dna){
-        int count = 0;
-        int length = dna.length();
-        for (int i=0;i<length;i++){
-            for (int j=i+1;j<length-1;j++){
-                if (dna.charAt(i)>dna.charAt(j)){
-                    count++;
-                }
-            }
-        }
-        return count;
-    }
+     /**
+      * 获取每个string的逆序数
+      */
+     private static int getInversionNum(String dna){
+         int count = 0;
+         int length = dna.length();
+         for (int i=0;i<length;i++){
+             for (int j=i+1;j<length;j++){
+                 if (dna.charAt(i)>dna.charAt(j)){
+                     count++;
+                 }
+             }
+         }
+         return count;
+     }
 }
