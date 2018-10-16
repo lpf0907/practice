@@ -18,7 +18,15 @@ public class Q1006 {
             handle2(count,p,e,i,d);
         }
     }
-    //处理函数1：此方法超时
+
+    /**
+     * 处理方法1，遍历解方程
+     * @param count
+     * @param p
+     * @param e
+     * @param i
+     * @param d
+     */
     private static void handle1(int count,int p, int e, int i, int d){
         int x,y,z;
         int result = 0;
@@ -36,9 +44,16 @@ public class Q1006 {
         System.out.println("Case "+count+": the next triple peak occurs in "+ result+" days.");
     }
 
+    /**
+     * 处理方法2，余数值处理
+     * @param count
+     * @param p
+     * @param e
+     * @param i
+     * @param d
+     */
     private static void handle2(int count,int p, int e, int i, int d) {
-
-        //P、E、I均是为了在分别除以23、28、33后余数为1，以方便乘p可以余p
+        //P、E、I均是为了在分别除以23、28、33后余数为1，以方便除p可以余p
         int P = 33 * 28 * 6;
         int E = 23 * 33 * 19;
         int I = 23 * 28 * 2;
