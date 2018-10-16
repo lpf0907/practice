@@ -40,6 +40,7 @@ public class Q1007 {
 
      /**
       * 获取每个string的逆序数
+      * sb1个小时
       */
      private static int getInversionNum(String dna){
          int count = 0;
