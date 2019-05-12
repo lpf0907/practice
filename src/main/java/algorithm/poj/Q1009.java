@@ -25,12 +25,12 @@ public class Q1009 {
             }else {
                 //录入图像数据
                 if (Integer.parseInt(input[0]) == 0 && Integer.parseInt(input[1]) == 0){
+                    handle(mapNum,length);
                     mapNum = new ArrayList<Integer>();
                 }else {
                     for (int i = 0 ; i<Integer.parseInt(input[1]);i++){
-                        mapNum.add(Integer.parseInt(input[1]));
+                        mapNum.add(Integer.parseInt(input[0]));
                     }
-                    handle(mapNum,length);
                 }
             }
         }
@@ -39,5 +39,6 @@ public class Q1009 {
     //图像处理
     private static void handle(ArrayList<Integer> mapNum, int length){
         System.out.println(mapNum);
+
     }
 }
