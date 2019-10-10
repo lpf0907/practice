@@ -23,6 +23,7 @@ public class Problem1006 {
                 break;
             }
             System.out.println(result);
+            readIn.close();
         }
     }
 }

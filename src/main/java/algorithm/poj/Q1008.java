@@ -14,6 +14,7 @@ public class Q1008 {
             haab[i] = sc.nextLine();
         }
         transfer(haab);
+        sc.close();
     }
 
     /**
@@ -44,7 +45,7 @@ public class Q1008 {
      * @return 天数
      */
     static int mapping(String monthName){
-        Map<String,Integer> mapper = new HashMap();
+        Map<String,Integer> mapper = new HashMap<String,Integer>();
         mapper.put("pop",20*0);
         mapper.put("no",20*1);
         mapper.put("zip",20*2);

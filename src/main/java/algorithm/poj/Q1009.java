@@ -8,7 +8,7 @@ public class Q1009 {
         // 数据属性
         int length = 0;
         ArrayList<Integer> mapNum = new ArrayList<Integer>();
-        Integer[][] map;
+        // Integer[][] map;
         //输入
         Scanner sc = new Scanner(System.in);
         while(sc.hasNext()){
@@ -34,6 +34,7 @@ public class Q1009 {
                 }
             }
         }
+        sc.close();
     }
 
     //图像处理

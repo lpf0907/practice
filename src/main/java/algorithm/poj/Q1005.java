@@ -24,5 +24,6 @@ public class Q1005 {
             System.out.println("Property "+tmp2+": This property will begin eroding in year "+tmp+".");
         }
         System.out.println("END OF OUTPUT.");
+        sc.close();
     }
 }

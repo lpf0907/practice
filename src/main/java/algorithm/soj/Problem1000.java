@@ -8,5 +8,6 @@ public class Problem1000 {
         int a = readIn.nextInt();
         int b = readIn.nextInt();
         System.out.println(a+b);
+        readIn.close();
     }
 }

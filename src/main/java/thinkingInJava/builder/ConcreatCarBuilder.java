@@ -11,7 +11,6 @@ public class ConcreatCarBuilder implements CarBuilder {
 	
 	@Override
 	public void setCarProduct(String carName, String carBrand) {
-		// TODO Auto-generated method stub
 		goodCarProduct.setCarName(carName);
 		goodCarProduct.setCarBrand(carBrand);
 	}
@@ -19,7 +18,6 @@ public class ConcreatCarBuilder implements CarBuilder {
 	
 	@Override
 	public CarProduct getCarProduct() {
-		// TODO Auto-generated method stub
 		return this.goodCarProduct;
 	}
 

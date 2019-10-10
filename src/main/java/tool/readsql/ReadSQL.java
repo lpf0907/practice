@@ -18,9 +18,7 @@ public class ReadSQL {
 
 	}
 
-	private static void write(TableInfo newTable, String flag)
-			throws IOException {
-		// TODO Auto-generated method stub
+	private static void write(TableInfo newTable, String flag) throws IOException {
 		FileWriter writer = null;
 		File file = null;
 		// 文件名为表名+.h
@@ -43,8 +41,7 @@ public class ReadSQL {
 			while ((tempString = reader.readLine()) != null) {
 				// 替换模版中定义的字符串,分别替换表名、字段信息、主键信息
 				if (tempString.contains("TABLENAME")) {
-					tempString.replace("TABLENAME", newTable.getTableName()
-							.toUpperCase());
+					tempString.replace("TABLENAME", newTable.getTableName().toUpperCase());
 				}
 				if (tempString.contains("tablename")) {
 					tempString.replace("tablename", newTable.getTableName());
@@ -63,8 +60,7 @@ public class ReadSQL {
 						// }else{
 						// colLength = "";
 						// }
-						tempString = newTable.getColType().get(i) + ""
-								+ newTable.getColName().get(i) + "" + "["
+						tempString = newTable.getColType().get(i) + "" + newTable.getColName().get(i) + "" + "["
 								+ colLength + "]";
 						bw.write(tempString);
 						bw.newLine();// 换行
@@ -88,8 +84,7 @@ public class ReadSQL {
 				// c文件里的最后一个函数内容
 				if (tempString.contains("bindcols")) {
 					for (int i = 0; i < newTable.getColName().size(); i++) {
-						tempString = "SQLBindCol(statement, 2, SQL_C_CHAR, model->"
-								+ newTable.getColName().get(i)
+						tempString = "SQLBindCol(statement, 2, SQL_C_CHAR, model->" + newTable.getColName().get(i)
 								+ "bind, sizeof(model->password), &indicator)";
 						bw.write(tempString);
 						bw.newLine();// 换行
@@ -124,7 +119,7 @@ public class ReadSQL {
 		String tableName = null;
 		List<String> colName = new ArrayList<String>();
 		List<String> colType = new ArrayList<String>();
-		List<Integer> colLength = new ArrayList<Integer>();
+		// List<Integer> colLength = new ArrayList<Integer>();
 		String key = null;
 		BufferedReader reader = null;
 		try {

@@ -10,9 +10,10 @@ import java.io.IOException;
 
 
 public class LoginServlet extends HttpServlet{
+    private static final long serialVersionUID = 1L;
     public void doGet(HttpServletRequest requests,HttpServletResponse response) throws ServletException,IOException {
         String username = requests.getParameter("username");
-        String pwd = requests.getParameter("pwd");
+        // String pwd = requests.getParameter("pwd");
         response.setContentType("text/html,charset=GB18030");
         //返回html页面  
         response.getWriter().println("<html>");  

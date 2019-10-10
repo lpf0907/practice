@@ -9,13 +9,16 @@ public class Q1004 {
         int i = 0;
         float total = 0;
         float money = 0;
-        while (i<12) {
+        while (i < 12) {
             money = sc.nextFloat();
-            total+=money;
+            total += money;
             i++;
         }
-        float average = total/12;
-        String  result = new Formatter().format("%.2f", average).toString();
-        System.out.println("$"+result);
+        float average = total / 12;
+        Formatter formatter = new Formatter();
+        String result = formatter.format("%.2f", average).toString();
+        System.out.println("$" + result);
+        formatter.close();
+        sc.close();
     }
 }

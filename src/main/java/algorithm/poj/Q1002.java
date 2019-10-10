@@ -31,6 +31,7 @@ public class Q1002 {
                 System.out.println("No duplicates.");
             }
         }
+        sc.close();
     }
 
     //标准号码变换函数

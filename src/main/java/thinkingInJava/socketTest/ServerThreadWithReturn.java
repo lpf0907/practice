@@ -41,10 +41,8 @@ public class ServerThreadWithReturn implements Callable<Object> {
 				pw.write("当前线程" + Thread.currentThread().getName());
 				pw.flush();// 调用flush()方法将缓冲输出
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			} catch (Exception e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			} finally {
 				// 关闭资源

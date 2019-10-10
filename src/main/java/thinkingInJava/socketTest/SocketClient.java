@@ -101,6 +101,7 @@ public class SocketClient {
 						client.getOutputStream().write(data, 0, 4196);
 					}
 					line = br.readLine();
+					client.close();
 				}
 			} catch (IOException e) {
 				e.printStackTrace();

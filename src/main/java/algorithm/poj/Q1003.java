@@ -13,6 +13,7 @@ public class Q1003 {
                 break;
             }
         }
+        sc.close();
     }
     //求和
     static int cardNumber(float length) {

@@ -16,6 +16,7 @@ public class Problem1007 {
             }else{
                 break;
             }
+            readIn.close();
         }
     }
 

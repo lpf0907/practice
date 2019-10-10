@@ -18,7 +18,7 @@ public class Server {
 	@SuppressWarnings("resource")
 	public static void main(String[] args) {
 
-		Logger logger1 = Logger.getLogger(Server.class);
+		// Logger logger1 = Logger.getLogger(Server.class);
 
 		// 10线程，写map
 		ExecutorService pool = Executors.newFixedThreadPool(20);
@@ -55,13 +55,10 @@ public class Server {
             out.close();
 			System.out.println("写入记录共" + count + "条");
 		} catch (FileNotFoundException e1) {
-			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		} catch (UnsupportedEncodingException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -100,7 +97,6 @@ class ServerThread extends Thread {
                 // 报文解析,去重
                 process(data,"正常报文",length);
 			} catch (NumberFormatException ne) {
-				// TODO: handle exception
                 // length不是数字，说明逆序，逆序重组
 
                 //首先获取所有的逆序报文
@@ -142,13 +138,10 @@ class ServerThread extends Thread {
 			}
 			Thread.sleep(100);
 		} catch (SocketException e) {
-			// TODO: handle exception
 			e.printStackTrace();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
 			try {
@@ -158,13 +151,10 @@ class ServerThread extends Thread {
 				if (socket != null)
 					socket.close();
 			} catch (FileNotFoundException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			} catch (UnsupportedEncodingException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
@@ -192,7 +182,6 @@ class ServerThread extends Thread {
 			data = data.replace("</message>", "");
 			map.put(confirmNumString, data);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			System.out.println("来源于  "+source+"检测不到confirmnum，长度是"+length);
 			logger.info(data);
 			//随机一个数
