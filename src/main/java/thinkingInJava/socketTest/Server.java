@@ -1,6 +1,7 @@
 package thinkingInJava.socketTest;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.*;
 import java.net.ServerSocket;
@@ -66,9 +67,7 @@ public class Server {
 
 class ServerThread extends Thread {
 
-	Logger logger = Logger.getLogger(ServerThread.class);
-	//设定配置文件的位置，如果不设置则要把配置文件放到class目录或根目录
-
+	static public Logger logger = LoggerFactory.getLogger(ServerThread.class); 	//设定配置文件的位置，如果不设置则要把配置文件放到class目录或根目录
 	Socket socket = null;
 	Map<String, String> map = null;
 
