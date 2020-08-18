@@ -1,5 +1,7 @@
 package algorithm.leetcode;
 
+import sun.awt.image.IntegerComponentRaster;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,34 +17,36 @@ class ListNode {
 public class AddTwoNumbers {
     public static ListNode addTwoNumbers(ListNode l1, ListNode l2) {
         // 获取数字
-        int num1=0,num2=0;
-        ArrayList<Integer> a = new ArrayList<>();
-        ArrayList<Integer> b = new ArrayList<>();
+        ArrayList<Integer> l1Array = new ArrayList<>();
+        ArrayList<Integer> l2Array = new ArrayList<>();
+        ArrayList<Integer> targetArray = new ArrayList<>();
         while (l1!= null){
-            a.add(l1.val);
+            l1Array.add(l1.val);
             l1 = l1.next;
         }
         while (l2!=null){
-            b.add(l2.val);
+            l2Array.add(l2.val);
             l2 = l2.next;
         }
-
-        // 转为整数后，求和
-        for (int i = a.size()-1;i>=0;i--){
-            num1 += (int)a.get(i) * Math.pow(10,i);
+        // 按顺序相加，用长的循环，短的补0，进位+1
+        int targetLength = l1Array.size()>l2Array.size()?l1Array.size():l2Array.size();
+        int carryFlag = 0,num1=0,num2=0,sum=0;
+        for (int i=0;i<targetLength;i++){
+            sum = 0;
+            num1 = i < l1Array.size() ? l1Array.get(i) : 0;
+            num2 = i < l2Array.size() ? l2Array.get(i) : 0;
+            sum = num1 + num2 + carryFlag;
+            targetArray.add((sum)%10);
+            carryFlag = sum >= 10 ? 1 : 0;
         }
-        for (int j = b.size()-1;j>=0;j--){
-            num2 += (int)b.get(j) * Math.pow(10,j);
+        if (carryFlag == 1){
+            targetArray.add(1);
         }
-        Integer sum = num1 + num2;
-
         // 整数转node
-        char[] tmp = sum.toString().toCharArray();
-        int length = tmp.length;
         ListNode result = null;
         ArrayList<ListNode> tmpResult = new ArrayList<ListNode>();
-        for (int k = length-1;k>=0;k--){
-            ListNode node = new ListNode(tmp[k]-'0');
+        for (int k = 0;k<targetArray.size();k++){
+            ListNode node = new ListNode(targetArray.get(k));
             tmpResult.add(node);
         }
         for (int m = 0; m<tmpResult.size()-1;m++){
