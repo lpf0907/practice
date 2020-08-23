@@ -1,9 +1,16 @@
 package algorithm.leetcode;
 
 import org.junit.Test;
+
 import java.util.Arrays;
 
 public class MainTest {
+
+    // 647. 回文子串
+    @Test
+    public void test647() {
+        System.out.println(SubString.countSubString("aaa"));
+    }
 
     // 2. 两数相加
     @Test
@@ -15,7 +22,7 @@ public class MainTest {
         l2.next = new ListNode(9);
 //        l2.next.next = new ListNode(4);
         ListNode result = AddTwoNumbers.addTwoNumbers(l1, l2);
-        while(result!=null){
+        while (result != null) {
             System.out.println(result.val);
             result = result.next;
         }
