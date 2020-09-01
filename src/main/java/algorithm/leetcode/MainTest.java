@@ -9,7 +9,7 @@ public class MainTest {
     // 201. 数字范围按位与
     @Test
     public void test201(){
-        System.out.println(RangeBitwiseAnd.rangeBitwiseAnd(17,20));
+        System.out.println(RangeBitwiseAnd.rangeBitwiseAnd(0, 2147483647));
     }
 
     // 647. 回文子串
